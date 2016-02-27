@@ -14,3 +14,4 @@
     <div>Balance: <?php echo $loggedInUser->balance ?></div>
 </div>
     
+   

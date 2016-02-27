@@ -45,5 +45,14 @@ $(function(){
                 $('.mainContent').html(data);
             }
         });
-    });
+    }).on('click', '#allUsers', function(e){
+        e.preventDefault();
+        $.get({
+            url: "./users.php",             
+            dataType: "html",                
+            success: function(data){ 
+                $('.mainContent').html(data);
+            }
+        });
+    });;
 });
