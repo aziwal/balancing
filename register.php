@@ -1,4 +1,4 @@
-<div>
+<div class="formWrap">
     <h1>User Registration</h1>
     <form id="registerForm">
        <input type="hidden" name="register" value="register">

@@ -1,4 +1,4 @@
-<div>
+<div class="formWrap">
     <h1>User Login</h1>
     <form id="loginForm">
        <input type="hidden" name="login" value="login">
