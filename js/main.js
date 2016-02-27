@@ -32,8 +32,8 @@ $(function(){
             data: $('#loginForm').serializeArray(),
             url: "./process_login.php",             
             dataType: "html",                
-            success: function(data){   
-               window.location = window.location;
+            success: function(data){ 
+                data ? $('.mainContent').html(data) : window.location = './';
             }
         });
     });

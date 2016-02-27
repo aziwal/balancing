@@ -27,7 +27,6 @@
                 'balance' => $balance
             ]);
             $_SESSION['user_session'] = $id;
-            echo "<a href='#' id='profile'>View profile</a> or <a href='#' id='listUsers'>view all users</a>";
         } else {
             echo '<p>Username or password is incorrect. Please <a href="#" id="login">try again</a></p>';
         }
