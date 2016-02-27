@@ -5,13 +5,14 @@ class User {
     public $firstName;
     public $lastName;
     public $email;
-    public $balance = 100;
+    public $balance;
 
     function __construct($data){
         $this->id = $data['id'];
-        $this->firstName = $data['first_name'];
-        $this->lastName = $data['last_name'];
+        $this->firstName = $data['firstName'];
+        $this->lastName = $data['lastName'];
         $this->email = $data['email'];
+        $this->balance = $data['balance'];
     }
 
     public function transferBalance($amount, $transferTo) {

@@ -13,6 +13,12 @@ a {
 .unstyled {
     list-style: none;
 }
+.error {
+    padding: 20px;
+    color: #cc0000;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+}
 .container {
     width: 1160px;
     padding: 20px;
@@ -26,6 +32,10 @@ a {
     color: #fff;
     font-style: italic;
     font-weight: bold;
+}
+#mainNav {
+    display: inline-block;
+    margin-left: 50px;
 }
 #mainNav li {
     display: inline-block;
