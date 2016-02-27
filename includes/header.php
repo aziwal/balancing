@@ -1,8 +1,9 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
 require_once('./dbconfig.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -28,3 +29,4 @@ require_once('./dbconfig.php');
          </div>
     </div>
     <div class="container">
+    

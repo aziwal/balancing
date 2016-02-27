@@ -6,3 +6,4 @@
             <span>Balance: </span>
 		</div>
     </div>
+    
