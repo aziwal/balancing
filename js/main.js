@@ -36,5 +36,14 @@ $(function(){
                 data ? $('.mainContent').html(data) : window.location = './';
             }
         });
+    }).on('click', '#profile', function(e){
+        e.preventDefault();
+        $.get({
+            url: "./profile.php",             
+            dataType: "html",                
+            success: function(data){ 
+                $('.mainContent').html(data);
+            }
+        });
     });
 });

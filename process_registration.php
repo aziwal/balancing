@@ -1,7 +1,6 @@
-<?php 
-    
-    include('./config.php');
-    include('./functions.php');
+<?php     
+    require_once('./config.php');
+    require_once('./functions.php');
 
     if (isset($_POST['register'])) {
         $firstName = checkInput($_POST['first_name']);

@@ -15,8 +15,8 @@ session_start();
             <ul id="mainNav" class="unstyled">
             <?php
                 if (isset($_SESSION['user_session'])) {
-                    echo '<li><a href="#">All Users</a></li>
-                          <li><a href="#">My Profile</a></li>
+                    echo '<li><a id="allUsers" href="#">All Users</a></li>
+                          <li><a id="profile" href="#">My Profile</a></li>
                           <li><a href="./logout.php">Logout</a></li>';
                 }
             ?>
