@@ -1,10 +1,8 @@
 <?php
-
 session_start();
-require_once('./dbconfig.php');
 
+include('./functions.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +16,14 @@ require_once('./dbconfig.php');
             <span id="logo">BMS</span>
             <ul id="mainNav" class="unstyled">
             <?php
-                if (isset($_SESSION['loggedIn'])) {
+                if (isset($_SESSION['user_session'])) {
                     echo '<li><a href="#">All Users</a></li>
                           <li><a href="#">My Profile</a></li>
-                          <li><a href="#">Logout</a></li>';
+                          <li><a href="./logout.php">Logout</a></li>';
                 }
             ?>
             </ul>
          </div>
     </div>
     <div class="container">
+    

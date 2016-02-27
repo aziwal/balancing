@@ -1,16 +1,12 @@
-<?php include('includes/header.php') ?>
-
-	 <div class="mainContent">
-		<div id="register-form">
-			<h1>User Registration</h1>
-				<form>
-                    <input type="text" name="first_name" value="" placeholder="First Name">
-                    <input type="text" name="last_name" value="" placeholder="Last Name">
-                    <input type="text" name="email" value="" placeholder="Email">
-                    <input type="password" name="password" value="" placeholder="Password">
-                    <input type="submit" name="register" value="Register">
-				</form>
-			</div>
-		</div>
-
-<?php include('includes/footer.php') ?>
+<div>
+    <h1>User Registration</h1>
+    <form id="registerForm">
+       <input type="hidden" name="register" value="register">
+        <input type="text" name="first_name" value="" placeholder="First Name" required>
+        <input type="text" name="last_name" value="" placeholder="Last Name" required>
+        <input type="email" name="email" value="" placeholder="Email" required>
+        <input type="password" name="password" value="" placeholder="Password" required>
+        <input type="button" id="doRegister" name="register" value="Register">
+    </form>
+    <a id="login" href="#">Return to Login</a>
+</div>
