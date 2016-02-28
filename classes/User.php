@@ -85,7 +85,6 @@ class User {
             $getBalances = $conn->prepare("SELECT user_id, balance FROM users WHERE user_id = ? OR user_id = ?");
             $getBalances->bind_param('ii', $id, $transferTo_ID);
             $getBalances->execute();
-            //$getBalances->bind_result($user_new, $transferee_new);
             $result = $getBalances->get_result();
             while ( $row = $result->fetch_assoc() ) {
                 $updatedBalances[] = $row;
