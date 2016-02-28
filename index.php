@@ -4,8 +4,8 @@
 <?php
     if(!isset($_SESSION['user_session'])) {
         echo "<p>You are not logged in.</p>";
-        echo "<a id='login' href='#'>Login</a> or "; 
-        echo "<a id='register' href='#'>Register</a>";
+        echo "<div id='buttonWrap'><a id='login' class='button' href='#'>Login</a>&nbsp;&nbsp;or&nbsp&nbsp;"; 
+        echo "<a id='register' class='button' href='#'>Register</a></div>";
     } else {
         echo "Logged In";
     }

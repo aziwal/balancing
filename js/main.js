@@ -21,9 +21,16 @@ $(function(){
    }).on('click', '#doRegister', function(){  
         var $info = $("#info");
         if ($("#password").val() !== $("#confirmPassword").val()) {
-            $("#info").text('Passwords do not match.');
+            $("#info").html('Passwords do not match.').show();
             return;
+        } else {
+            var checkPass = passwordStrength($("#password").val());
+            if (checkPass) {
+                $info.html(checkPass).show();
+                return;
+            }
         } 
+        $info.html('').hide();
         var empty = $('#registerForm').find("input").filter(function() {
             return this.value === "";
         });
@@ -89,3 +96,20 @@ $(function(){
         });
     });
 });
+
+function passwordStrength(password) {   
+    var result = '';
+    if ( password && password.length < 6 ) {
+        result = 'Password must be at least 6 character long.<br>';
+    } 
+    if ( !/[a-z]/.test(password) ) {
+        result += 'Password must container at least one lower letter.<br>';
+    }
+    if ( !/[A-Z]/.test(password) ) {
+        result += 'Password must container at least one capital letter.';
+    }
+    if ( !/\d/.test(password) ) {
+        result += '<br>Password must contain one digit.';
+    }
+    return result;
+}
