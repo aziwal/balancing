@@ -84,8 +84,7 @@ $(function(){
             data: {
                 'transferTo_ID': $row.attr('data-id'),
                 'amount': $(this).prev().val()
-            },
-            dataType: "html",                
+            },               
             success: function(data){ 
                 data = JSON.parse(data);
                 for (var i = 0; i < data.length; i++) {
