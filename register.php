@@ -7,8 +7,8 @@
         <input type="email" name="email" value="" placeholder="Email" required>
         <input id="password" type="password" name="password" value="" placeholder="Password" required>
         <input id="confirmPassword" type="password" name="" value="" placeholder="Confirm Password" required>
-        <div id="info"></div>
-        <input type="button" id="doRegister" name="register" value="Register">
+        <div id="info" class="error" style="display: none;"></div>
+        <input type="button" class="button" id="doRegister" name="register" value="Register">
     </form>
     <a id="login" href="#">Return to Login</a>
 </div>

@@ -22,7 +22,7 @@
                 <?php if ($user->id !== $_SESSION['user_session']) { ?>
                     <span class="transferWrap">
                         <input type="number" class="amountToTransfer" min='1'>
-                        <button type="button" class="transfer">Transfer Amount</button>
+                        <button type="button" class="transfer button">Transfer Amount</button>
                     </span>
                 <?php } ?>
             </li>

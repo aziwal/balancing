@@ -19,6 +19,17 @@ a {
     background-color: #f2dede;
     border: 1px solid #ebccd1;
 }
+.button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 16px;
+}
+.button:hover {
+    background-color: #efefef;
+}
 .container {
     width: 1160px;
     padding: 20px;
@@ -43,6 +54,10 @@ a {
 }
 #mainNav li a {
     color: #fff;
+    font-size: 18px;
+}
+#buttonWrap {
+    margin-top: 40px;
 }
 #user {
     padding: 20px;
@@ -80,4 +95,7 @@ a {
     margin: 20px auto;
     padding: 10px;
     text-align: center;
+}
+.formWrap input.button {
+    padding: 10px 20px;
 }
