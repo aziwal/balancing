@@ -68,7 +68,7 @@ class User {
         
         //Transfer if user have enough balance and update for both users
 
-        if ($balance > $amount) {
+        if ($balance >= $amount) {
             $deduct = $conn->prepare("UPDATE users SET balance = (@cur_value := balance) - ? WHERE user_id = ?");
             $deduct->bind_param('di', $amount, $id);
             $deduct->execute();
