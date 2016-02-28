@@ -18,24 +18,39 @@ $(function(){
                $('.mainContent').html(data);
            }
        });
-   }).on('click', '#doRegister', function(){        
-        $.post({
-            data: $('#registerForm').serializeArray(),
-            url: "./process_registration.php",             
-            dataType: "html",                
-            success: function(data){   
-               $('.mainContent').html(data);
-            }
+   }).on('click', '#doRegister', function(){  
+        var $info = $("#info");
+        if ($("#password").val() !== $("#confirmPassword").val()) {
+            $("#info").text('Passwords do not match.');
+            return;
+        } 
+        var empty = $('#registerForm').find("input").filter(function() {
+            return this.value === "";
         });
-    }).on('click', '#doLogin', function(){        
-        $.post({
-            data: $('#loginForm').serializeArray(),
-            url: "./process_login.php",             
-            dataType: "html",                
-            success: function(data){ 
-                data ? $('.mainContent').html(data) : window.location = './';
-            }
+        if(!empty.length) {
+            $.post({
+                data: $('#registerForm').serializeArray(),
+                url: "./process_registration.php",             
+                dataType: "html",                
+                success: function(data){   
+                   $('.mainContent').html(data);
+                }
+            });
+        }
+    }).on('click', '#doLogin', function(){  
+        var empty = $('#loginForm').find("input").filter(function() {
+            return this.value === "";
         });
+        if(!empty.length) {   
+            $.post({
+                data: $('#loginForm').serializeArray(),
+                url: "./process_login.php",             
+                dataType: "html",                
+                success: function(data){ 
+                    data ? $('.mainContent').html(data) : window.location = './';
+                }
+            });
+        }
     }).on('click', '#profile', function(e){
         e.preventDefault();
         $.get({
