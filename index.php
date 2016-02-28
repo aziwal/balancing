@@ -6,6 +6,8 @@
         echo "<p>You are not logged in.</p>";
         echo "<a id='login' href='#'>Login</a> or "; 
         echo "<a id='register' href='#'>Register</a>";
+    } else {
+        echo "Logged In";
     }
 ?>
 </div>
