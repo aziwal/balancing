@@ -9,7 +9,7 @@
         $password = checkInput($_POST['password']);
         $salt = 'peoiwfhsoidhf98423424sdaljf';
         $password = sha1($password . $salt);
-        $startingBalance = checkInput(100.00);
+        $startingBalance = 100.00;
 
         $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, balance) 
                                 values (?, ?, ?, ?, ?)");

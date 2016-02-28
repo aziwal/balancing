@@ -23,7 +23,7 @@ a {
     padding: 10px 20px;
     background-color: #fff;
     color: #000;
-    border: 1px solid #ddd;
+    border: 1px solid #aaa;
     border-radius: 3px;
     font-size: 16px;
 }
@@ -45,8 +45,9 @@ a {
     font-weight: bold;
 }
 #mainNav {
-    display: inline-block;
-    margin-left: 50px;
+    display: block;
+    float: right;
+    margin-top: -5px;
 }
 #mainNav li {
     display: inline-block;
@@ -55,6 +56,10 @@ a {
 #mainNav li a {
     color: #fff;
     font-size: 18px;
+}
+#index {
+    margin-top: 50px;
+    text-align: center;
 }
 #buttonWrap {
     margin-top: 40px;
