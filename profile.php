@@ -13,5 +13,3 @@
     <div>Email: <?php echo $loggedInUser->email ?></div>
     <div>Balance: <?php echo $loggedInUser->balance ?></div>
 </div>
-    
-   

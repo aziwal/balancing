@@ -54,5 +54,23 @@ $(function(){
                 $('.mainContent').html(data);
             }
         });
-    });;
+    }).on('click', '.transfer', function(e){
+        e.preventDefault();
+        var $row = $(this).closest('li.row');
+        $.post({
+            url: "./transfer_balance.php",
+            data: {
+                'transferTo_ID': $row.attr('data-id'),
+                'amount': $(this).prev().val()
+            },
+            dataType: "html",                
+            success: function(data){ 
+                data = JSON.parse(data);
+                for (var i = 0; i < data.length; i++) {
+                    var $rowToUpdate = $('#users').find('li[data-id="' + data[i].user_id + '"]');
+                    $rowToUpdate.find('.balance').html(data[i].balance);
+                }
+            }
+        });
+    });
 });

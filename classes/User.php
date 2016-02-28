@@ -53,10 +53,46 @@ class User {
         return $users;
     }
 
-    public function transferBalance($amount, $transferTo) {
-        if ( isset($amount) && isset($transferTo) ) {
-            $this->balance -= $amount;
-            $transferTo->balance += $amount;
+    public static function transferBalance($id, $transferTo_ID, $amount) {
+        
+        // Get user's current balance
+
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        $stmt = $conn->prepare("SELECT balance FROM users WHERE user_id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $stmt->bind_result($balance);
+        $stmt->fetch();
+
+        $stmt->close();
+        
+        //Transfer if user have enough balance and update for both users
+
+        if ($balance > $amount) {
+            $deduct = $conn->prepare("UPDATE users SET balance = (@cur_value := balance) - ? WHERE user_id = ?");
+            $deduct->bind_param('di', $amount, $id);
+            $deduct->execute();
+            $deduct->close();
+
+            $transfer = $conn->prepare("UPDATE users SET balance = (@cur_value := balance) + ? WHERE user_id = ?");
+            $transfer->bind_param('di', $amount, $transferTo_ID);
+            $transfer->execute();
+            $transfer->close();
+        
+            // Finally get the updated balances
+            
+            $updatedBalances = [];
+            $getBalances = $conn->prepare("SELECT user_id, balance FROM users WHERE user_id = ? OR user_id = ?");
+            $getBalances->bind_param('ii', $id, $transferTo_ID);
+            $getBalances->execute();
+            //$getBalances->bind_result($user_new, $transferee_new);
+            $result = $getBalances->get_result();
+            while ( $row = $result->fetch_assoc() ) {
+                $updatedBalances[] = $row;
+            }
+            
+            $getBalances->close();
+            return $updatedBalances;
         }
     }        
 }
